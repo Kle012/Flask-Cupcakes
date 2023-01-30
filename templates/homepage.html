@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <div>
+        <h1>Cupcakes List</h1>
+        <ul>
+            {% for cupcake in cupcakes %}
+                <li>{{ cupcake.flavor }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h1>Add New Cupcake</h1>
+        <form action="/api/cupcakes" method="POST">
+            <label for="flavor">Flavor</label>
+            <input type="text" id="flavor" name="flavor">
+
+            <label for="size">Size</label>
+            <input type="text" id="size" name="size">
+
+            <label for="rating">Rating</label>
+            <input type="number" id="rating" name="rating">
+
+            <label for="image">Image</label>
+            <input type="text" id="image" name="image">
+
+            <button>Create</button>
+        </form>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    
+</body>
+</html>
