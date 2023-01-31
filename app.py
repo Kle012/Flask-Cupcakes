@@ -20,8 +20,7 @@ with app.app_context():
 @app.route('/')
 def homepage():
     """Show empty cupcakes list and a new cupcake form."""
-    cupcakes = Cupcake.query.all()
-    return render_template('homepage.html', cupcakes = cupcakes)
+    return render_template('homepage.html')
 
 @app.route('/api/cupcakes')
 def list_all_cupcakes():
