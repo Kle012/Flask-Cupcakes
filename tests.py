@@ -142,6 +142,8 @@ class CupcakeViewsTestCase(TestCase):
                     "image": "http://test.com/test.jpg"
                 }
             })
+            self.assertEqual(Cupcake.query.count(), 1)
+
     
     def test_delete_cupcake(self):
         with app.test_client() as client:
@@ -154,4 +156,6 @@ class CupcakeViewsTestCase(TestCase):
             })
 
             self.assertEqual(res.status_code, 200)
+            data = res.json
+            self.assertEqual(data, {"message": "Deleted"})
             self.assertEqual(Cupcake.query.count(), 0)
